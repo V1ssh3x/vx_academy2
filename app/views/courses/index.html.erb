@@ -1,0 +1,76 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 30px 0;
+    color: #333;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #ff6600;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #e65c00;
+  }
+
+  ul.course-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.course-list li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  ul.course-list li h3 {
+    margin: 0 0 10px;
+    color: #222;
+  }
+
+  ul.course-list li p {
+    color: #666;
+  }
+</style>
+
+<div class="container">
+  <h1>Курси Академії VX</h1>
+
+  <%= link_to 'Новий курс', new_course_path, class: "btn" %>
+
+  <ul class="course-list">
+    <% @courses.each do |course| %>
+      <li>
+        <h3><%= course.title %> — <%= course.category %></h3>
+        <p><%= truncate(course.description, length: 150) %></p>
+        <%= link_to 'Детальніше', course_path(course), class: "btn" %>
+        <% if current_user %>
+          <%= button_to 'Записатися', enrollments_path(course_id: course.id), method: :post, class: "btn" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

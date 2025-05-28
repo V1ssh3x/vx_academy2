@@ -1,0 +1,154 @@
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #252525;
+  color: #fff;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100wv;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.site-header, .site-footer {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.site-content{
+    flex: 1 1 auto;
+    min-height: 90%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  text-align: center;
+  padding: 50px;
+  background: #222;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.hero .btn {
+  background: #ff6600;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.highlights {
+  padding: 30px;
+}
+
+.highlights ul {
+  list-style: square;
+  padding-left: 40px;
+}
+/* === HEADER === */
+.site-header {
+  background: #1c1c1c;
+  padding: 15px 0;
+  color: white;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  color: #ff6600;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.main-nav a:hover {
+  color: #ff6600;
+}
+
+/* === MAIN === */
+.site-content {
+  padding: 30px 20px;
+}
+
+/* === FOOTER === */
+.site-footer {
+  background: #f2f2f2;
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.site-footer p {
+  margin: 0;
+  color: #666;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #ff6600;
+}
+
+/* === Container helper === */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}

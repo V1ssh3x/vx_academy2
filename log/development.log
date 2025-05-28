@@ -1,0 +1,708 @@
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='VxAcademy2'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Started GET "/" for ::1 at 2025-05-29 00:24:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 2595ms (Views: 51.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-05-28 21:33:52.321658', '2025-05-28 21:33:52.321660') RETURNING "key" /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Migrating to CreateUsers (20250528213245)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='VxAcademy2'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "role" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250528213245') RETURNING "version" /*application='VxAcademy2'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Started GET "/" for ::1 at 2025-05-29 00:35:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 474ms (Views: 3.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2025-05-29 00:36:16 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/index.html.erb within layouts/application (Duration: 7.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | GC: 0.0ms)
+Completed 200 OK in 423ms (Views: 28.7ms | ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for ::1 at 2025-05-29 00:36:16 +0300
+Started GET "/assets/stimulus.min-4b1e420e.js" for ::1 at 2025-05-29 00:36:16 +0300
+Started GET "/assets/turbo.min-1262d735.js" for ::1 at 2025-05-29 00:36:16 +0300
+Started GET "/assets/controllers/hello_controller-708796bd.js" for ::1 at 2025-05-29 00:36:17 +0300
+Started GET "/assets/controllers/index-ee64e1f1.js" for ::1 at 2025-05-29 00:36:17 +0300
+Started GET "/assets/application-bfcdf840.js" for ::1 at 2025-05-29 00:36:17 +0300
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for ::1 at 2025-05-29 00:36:17 +0300
+Started GET "/assets/controllers/application-3affb389.js" for ::1 at 2025-05-29 00:36:17 +0300
+Started GET "/users/new" for ::1 at 2025-05-29 00:37:06 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 85.8ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 87.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 88.4ms | GC: 0.0ms)
+Completed 200 OK in 341ms (Views: 88.9ms | ActiveRecord: 0.6ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-05-29 00:37:48 +0300
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "WishText", "email" => "[FILTERED]", "password_digest" => "[FILTERED]", "role" => "1234"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "role", "created_at", "updated_at") VALUES ('WishText', 'tets@test.com', '1234', '1234', '2025-05-28 21:37:49.221083', '2025-05-28 21:37:49.221083') RETURNING "id" /*action='create',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 236ms (ActiveRecord: 14.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/1" for ::1 at 2025-05-29 00:37:49 +0300
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 5.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 0.0ms)
+Completed 200 OK in 285ms (Views: 6.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2025-05-29 00:37:52 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 242ms (Views: 13.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2025-05-29 00:37:54 +0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | GC: 0.0ms)
+Completed 200 OK in 228ms (Views: 3.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2025-05-29 00:59:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 17.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 47.5ms | GC: 0.0ms)
+Completed 200 OK in 514ms (Views: 48.4ms | ActiveRecord: 4.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-5b345294.css" for ::1 at 2025-05-29 00:59:13 +0300
+Started GET "/" for ::1 at 2025-05-29 00:59:18 +0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 627ms (Views: 10.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2025-05-29 01:06:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 61.6ms | GC: 0.2ms)
+Completed 200 OK in 1273ms (Views: 75.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/about.html" for ::1 at 2025-05-29 01:06:43 +0300
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 418ms (Views: 1.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/about.html" for ::1 at 2025-05-29 01:06:50 +0300
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 542ms (Views: 2.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Started GET "/users" for ::1 at 2025-05-29 01:14:45 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /*action='index',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered users/index.html.erb within layouts/application (Duration: 15.8ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | GC: 0.2ms)
+Completed 200 OK in 642ms (Views: 32.8ms | ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2025-05-29 01:14:49 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 296ms (Views: 2.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/1" for ::1 at 2025-05-29 01:14:50 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "1"}
+Started GET "/users/new" for ::1 at 2025-05-29 01:14:51 +0300
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 517ms (Views: 2.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 20.8ms | GC: 0.0ms)
+  Rendered users/new.html.erb within layouts/application (Duration: 27.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | GC: 0.0ms)
+Completed 200 OK in 346ms (Views: 30.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2025-05-29 01:15:11 +0300
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "WishText", "email" => "[FILTERED]", "password_digest" => "[FILTERED]", "role" => "admin"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "role", "created_at", "updated_at") VALUES ('WishText', 'tets1@test.com', 'qwerty', 'admin', '2025-05-28 22:15:12.507091', '2025-05-28 22:15:12.507091') RETURNING "id" /*action='create',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:27:in 'block in UsersController#create'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 489ms (ActiveRecord: 4.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2" for ::1 at 2025-05-29 01:15:12 +0300
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 256ms (Views: 2.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/1" for ::1 at 2025-05-29 01:15:23 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 458ms (Views: 2.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2" for ::1 at 2025-05-29 01:15:30 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:63:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 224ms (Views: 1.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Migrating to CreateCourses (20250528221800)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='VxAcademy2'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "image" varchar, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250528221800') RETURNING "version" /*application='VxAcademy2'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Started GET "/courses" for ::1 at 2025-05-29 01:20:14 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (3.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:8
+  Rendered courses/index.html.erb within layouts/application (Duration: 14.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | GC: 0.0ms)
+Completed 200 OK in 474ms (Views: 23.9ms | ActiveRecord: 6.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/new" for ::1 at 2025-05-29 01:20:18 +0300
+Processing by CoursesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (Duration: 7.5ms | GC: 0.0ms)
+  Rendered courses/new.html.erb within layouts/application (Duration: 14.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | GC: 0.0ms)
+Completed 200 OK in 499ms (Views: 16.3ms | ActiveRecord: 0.3ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/courses" for ::1 at 2025-05-29 01:22:27 +0300
+Processing by CoursesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "course" => {"title" => "ООП", "description" => "Найкращий курс в світі, на думку нашого колективу", "image" => "https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg", "category" => "Programing"}, "commit" => "Create Course"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:27:in 'block in CoursesController#create'
+  [1m[36mCourse Create (2.5ms)[0m  [1m[32mINSERT INTO "courses" ("title", "description", "image", "category", "created_at", "updated_at") VALUES ('ООП', 'Найкращий курс в світі, на думку нашого колективу', 'https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg', 'Programing', '2025-05-28 22:22:28.046529', '2025-05-28 22:22:28.046529') RETURNING "id" /*action='create',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:27:in 'block in CoursesController#create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:27:in 'block in CoursesController#create'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 445ms (ActiveRecord: 3.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/1" for ::1 at 2025-05-29 01:22:28 +0300
+Processing by CoursesController#show as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:63:in 'CoursesController#set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered courses/show.html.erb within layouts/application (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | GC: 0.0ms)
+Completed 200 OK in 300ms (Views: 6.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/1" for ::1 at 2025-05-29 01:23:26 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:63:in 'CoursesController#set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered courses/show.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 388ms (Views: 2.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses" for ::1 at 2025-05-29 01:23:29 +0300
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:8
+  Rendered courses/_course.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered courses/index.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 460ms (Views: 4.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/new" for ::1 at 2025-05-29 01:23:31 +0300
+Processing by CoursesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered courses/new.html.erb within layouts/application (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 0.0ms)
+Completed 200 OK in 448ms (Views: 5.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/courses" for ::1 at 2025-05-29 01:25:37 +0300
+Processing by CoursesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "course" => {"title" => "Проєктування та дизайн цифрових продуктів", "description" => "Тут ви навчитесь проєктувати дизайн для того, щоб котиків вставляти на дизайн", "image" => "https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg", "category" => "design"}, "commit" => "Create Course"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:27:in 'block in CoursesController#create'
+  [1m[36mCourse Create (2.1ms)[0m  [1m[32mINSERT INTO "courses" ("title", "description", "image", "category", "created_at", "updated_at") VALUES ('Проєктування та дизайн цифрових продуктів', 'Тут ви навчитесь проєктувати дизайн для того, щоб котиків вставляти на дизайн', 'https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg', 'design', '2025-05-28 22:25:37.482549', '2025-05-28 22:25:37.482549') RETURNING "id" /*action='create',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:27:in 'block in CoursesController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:27:in 'block in CoursesController#create'
+Redirected to http://localhost:3000/courses/2
+Completed 302 Found in 345ms (ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/2" for ::1 at 2025-05-29 01:25:37 +0300
+Processing by CoursesController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 2 LIMIT 1 /*action='show',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:63:in 'CoursesController#set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered courses/show.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | GC: 0.0ms)
+Completed 200 OK in 473ms (Views: 5.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses" for ::1 at 2025-05-29 01:25:41 +0300
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:8
+  Rendered courses/_course.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered courses/_course.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered courses/index.html.erb within layouts/application (Duration: 3.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | GC: 0.0ms)
+Completed 200 OK in 336ms (Views: 4.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses" for ::1 at 2025-05-29 01:33:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (3.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  Rendered courses/index.html.erb within layouts/application (Duration: 21.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 58.8ms | GC: 0.0ms)
+Completed 200 OK in 643ms (Views: 70.6ms | ActiveRecord: 5.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/1" for ::1 at 2025-05-29 01:33:15 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:63:in 'CoursesController#set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered courses/show.html.erb within layouts/application (Duration: 9.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | GC: 0.0ms)
+Completed 200 OK in 543ms (Views: 13.3ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/1" for ::1 at 2025-05-29 01:33:15 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:63:in 'CoursesController#set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered courses/show.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | GC: 0.0ms)
+Completed 200 OK in 266ms (Views: 3.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mCACHE ActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Migrating to CreateEnrollments (20250528223513)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='VxAcademy2'*/[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "enrollments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "course_id" integer NOT NULL, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_e860e0e46b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_2e119501f4"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+) /*application='VxAcademy2'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_enrollments_on_user_id" ON "enrollments" ("user_id") /*application='VxAcademy2'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_enrollments_on_course_id" ON "enrollments" ("course_id") /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250528223513') RETURNING "version" /*application='VxAcademy2'*/[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='VxAcademy2'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Started GET "/courses" for ::1 at 2025-05-29 01:53:45 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendered courses/index.html.erb within layouts/application (Duration: 105.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 148.1ms | GC: 0.0ms)
+Completed 200 OK in 1841ms (Views: 160.1ms | ActiveRecord: 5.8ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/1" for ::1 at 2025-05-29 01:53:49 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id" => "1"}
+Started POST "/enrollments?course_id=1" for ::1 at 2025-05-29 01:53:50 +0300
+Processing by EnrollmentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "course_id" => "1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:63:in 'CoursesController#set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 2.0ms | GC: 0.0ms)
+  Rendered courses/show.html.erb within layouts/application (Duration: 23.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | GC: 0.0ms)
+Completed 200 OK in 1127ms (Views: 30.7ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='VxAcademy2',controller='enrollments'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='VxAcademy2',controller='enrollments'*/[0m
+  ↳ app/controllers/enrollments_controller.rb:28:in 'EnrollmentsController#create'
+  [1m[36mCourse Load (8.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1 /*action='create',application='VxAcademy2',controller='enrollments'*/[0m
+  ↳ app/controllers/enrollments_controller.rb:28:in 'EnrollmentsController#create'
+  [1m[36mEnrollment Create (0.4ms)[0m  [1m[32mINSERT INTO "enrollments" ("user_id", "course_id", "status", "created_at", "updated_at") VALUES (1, 1, 'pending', '2025-05-28 22:53:51.874191', '2025-05-28 22:53:51.874191') RETURNING "id" /*action='create',application='VxAcademy2',controller='enrollments'*/[0m
+  ↳ app/controllers/enrollments_controller.rb:28:in 'EnrollmentsController#create'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='VxAcademy2',controller='enrollments'*/[0m
+  ↳ app/controllers/enrollments_controller.rb:28:in 'EnrollmentsController#create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 1163ms (ActiveRecord: 13.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses" for ::1 at 2025-05-29 01:53:51 +0300
+Processing by CoursesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendered courses/index.html.erb within layouts/application (Duration: 18.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | GC: 0.0ms)
+Completed 200 OK in 921ms (Views: 21.7ms | ActiveRecord: 0.6ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/courses/1" for ::1 at 2025-05-29 01:53:55 +0300
+Processing by CoursesController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/courses_controller.rb:63:in 'CoursesController#set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered courses/show.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | GC: 0.0ms)
+Completed 200 OK in 1200ms (Views: 7.7ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses" for ::1 at 2025-05-29 01:57:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendered courses/index.html.erb within layouts/application (Duration: 69.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 102.3ms | GC: 0.0ms)
+Completed 200 OK in 1021ms (Views: 212.1ms | ActiveRecord: 4.9ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/courses" for ::1 at 2025-05-29 01:58:35 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendered courses/index.html.erb within layouts/application (Duration: 36.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 85.0ms | GC: 0.0ms)
+Completed 200 OK in 909ms (Views: 89.8ms | ActiveRecord: 1.9ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-0237f047.css" for ::1 at 2025-05-29 01:58:36 +0300
+Started GET "/" for ::1 at 2025-05-29 01:58:39 +0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 813ms (Views: 9.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-05-29 01:58:42 +0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 745ms (Views: 4.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-05-29 01:58:43 +0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | GC: 0.0ms)
+Completed 200 OK in 675ms (Views: 5.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/about.html" for ::1 at 2025-05-29 01:59:15 +0300
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 1095ms (Views: 11.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/about.html" for ::1 at 2025-05-29 01:59:16 +0300
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.0ms)
+Completed 200 OK in 1018ms (Views: 19.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-05-29 02:01:19 +0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | GC: 0.0ms)
+Completed 200 OK in 1091ms (Views: 9.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-05-29 02:01:22 +0300
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 1045ms (Views: 14.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses" for ::1 at 2025-05-29 02:01:37 +0300
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendered courses/index.html.erb within layouts/application (Duration: 32.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.2ms | GC: 0.0ms)
+Completed 200 OK in 1121ms (Views: 40.7ms | ActiveRecord: 0.8ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/about" for ::1 at 2025-05-29 02:01:40 +0300
+Processing by PagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | GC: 0.0ms)
+Completed 200 OK in 1034ms (Views: 17.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/courses" for ::1 at 2025-05-29 02:01:42 +0300
+Processing by CoursesController#index as HTML
+Started GET "/contacts" for ::1 at 2025-05-29 02:01:42 +0300
+Processing by PagesController#contacts as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendered courses/index.html.erb within layouts/application (Duration: 66.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 78.3ms | GC: 0.0ms)
+Completed 200 OK in 2020ms (Views: 83.0ms | ActiveRecord: 1.7ms (3 queries, 1 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering pages/contacts.html.erb within layouts/application
+  Rendered pages/contacts.html.erb within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | GC: 0.0ms)
+Completed 200 OK in 1909ms (Views: 15.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/contacts" for ::1 at 2025-05-29 02:01:45 +0300
+Processing by PagesController#contacts as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/contacts.html.erb within layouts/application
+  Rendered pages/contacts.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | GC: 0.0ms)
+Completed 200 OK in 1066ms (Views: 12.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/contacts" for ::1 at 2025-05-29 02:01:46 +0300
+Started GET "/contacts" for ::1 at 2025-05-29 02:01:46 +0300
+Processing by PagesController#contacts as HTML
+Started GET "/contacts" for ::1 at 2025-05-29 02:01:46 +0300
+Processing by PagesController#contacts as HTML
+Processing by PagesController#contacts as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/contacts.html.erb within layouts/application
+  Rendered pages/contacts.html.erb within layouts/application (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | GC: 0.0ms)
+Completed 200 OK in 2712ms (Views: 20.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering pages/contacts.html.erb within layouts/application
+  Rendered pages/contacts.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | GC: 0.0ms)
+Completed 200 OK in 2745ms (Views: 18.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering pages/contacts.html.erb within layouts/application
+  Rendered pages/contacts.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | GC: 0.0ms)
+Completed 200 OK in 2659ms (Views: 12.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
