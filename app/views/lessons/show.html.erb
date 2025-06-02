@@ -1,0 +1,15 @@
+<h1><%= @lesson.title %></h1>
+
+<div>
+  <%= simple_format(@lesson.content) %>
+</div>
+
+<p>Посилання в тексті:</p>
+<ul>
+  <% @lesson.links.each do |link| %>
+    <li><a href="<%= link %>" target="_blank" rel="noopener"><%= link %></a></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Редагувати', edit_course_lesson_path(@course, @lesson) %> |
+<%= link_to 'Назад до уроків', course_lessons_path(@course) %>

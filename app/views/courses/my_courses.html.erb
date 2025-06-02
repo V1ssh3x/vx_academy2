@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Мої курси</h1>
+
+  <% if @courses.any? %>
+    <ul class="course-list">
+      <% @courses.each do |course| %>
+        <li>
+          <h3><%= course.title %> — <%= course.category %></h3>
+          <p><%= truncate(course.description, length: 150) %></p>
+          <%= link_to 'Детальніше', course_path(course), class: "btn" %>
+
+          <% if current_user %>
+            <% enrollment = Enrollment.find_by(user: current_user, course: course) %>
+            <% if enrollment %>
+              <%= button_to 'Скасувати запис', enrollment_path(enrollment), method: :delete, data: { confirm: 'Ви впевнені?' }, class: "btn btn-danger" %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Ви ще не записалися на жоден курс.</p>
+  <% end %>
+</div>

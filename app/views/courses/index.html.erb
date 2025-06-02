@@ -69,6 +69,7 @@
         <%= link_to 'Детальніше', course_path(course), class: "btn" %>
         <% if current_user %>
           <%= button_to 'Записатися', enrollments_path(course_id: course.id), method: :post, class: "btn" %>
+
         <% end %>
       </li>
     <% end %>

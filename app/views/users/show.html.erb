@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<h1>Профіль користувача</h1>
 
-<%= render @user %>
+<p><strong>Ім'я:</strong> <%= @user.name %></p>
+<p><strong>Email:</strong> <%= @user.email %></p>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+<% if @user.avatar.attached? %>
+  <div>
+    <h3>Аватар:</h3>
+    <div class="avatar">
+      <%= image_tag @user.avatar %>
+    </div>
+  </div>
+<% end %>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
-</div>
+<%= link_to 'Редагувати профіль', edit_user_path(@user) %>

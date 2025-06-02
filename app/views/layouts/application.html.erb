@@ -21,7 +21,7 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   <body>
   <header class="site-header">
     <div class="container">
@@ -29,8 +29,18 @@
       <nav class="main-nav">
         <%= link_to 'Головна', root_path %>
         <%= link_to 'Курси', courses_path %>
+        <%= link_to 'Мої курси', my_courses_path %>
         <%= link_to 'Про нас', about_path %>
       </nav>
+      <% if logged_in? %>
+        <%= link_to 'Профіль', user_path(current_user) if logged_in? %>
+        Привіт, <%= current_user.name %>
+
+        <%= link_to "Вийти", logout_path, method: :delete, data: { confirm: "Ви дійсно хочете вийти?" } %>
+      <% else %>
+        <%= link_to "Увійти", login_path %>
+        <%= link_to "Зареєструватися", new_user_path %>
+      <% end %>
     </div>
   </header>
 

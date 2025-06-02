@@ -1,0 +1,15 @@
+<h1>Уроки курсу "<%= @course.title %>"</h1>
+
+<%= link_to 'Додати урок', new_course_lesson_path(@course) %>
+
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li>
+      <%= link_to lesson.title, course_lesson_path(@course, lesson) %>
+      | <%= link_to 'Видалити', course_lesson_path(@course, lesson), method: :delete, data: { confirm: 'Впевнені?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Назад до курсів', courses_path %>
+

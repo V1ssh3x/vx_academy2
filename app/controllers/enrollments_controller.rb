@@ -21,9 +21,8 @@ class EnrollmentsController < ApplicationController
 
   # POST /enrollments or /enrollments.json
   def create
-    @enrollment = Enrollment.new(course_id: params[:course_id])
-    @enrollment.user = current_user
-    @enrollment.status = "pending"
+    @enrollment = current_user.enrollments.build(course_id: params[:course_id], status: "pending")
+
 
     if @enrollment.save
       redirect_to courses_path, notice: "Успішно записано на курс!"
@@ -48,22 +47,25 @@ class EnrollmentsController < ApplicationController
 
   # DELETE /enrollments/1 or /enrollments/1.json
   def destroy
-    @enrollment.destroy!
+    @enrollment = Enrollment.find(params[:id])
 
-    respond_to do |format|
-      format.html { redirect_to enrollments_path, status: :see_other, notice: "Enrollment was successfully destroyed." }
-      format.json { head :no_content }
+    # Перевірка, що запис належить поточному користувачу
+    if @enrollment.user == current_user
+      @enrollment.destroy
+      redirect_to my_courses_path, notice: "Запис скасовано."
+    else
+      redirect_to my_courses_path, alert: "Немає доступу для скасування цього запису."
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_enrollment
-      @enrollment = Enrollment.find(params.expect(:id))
+      @enrollment = Enrollment.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def enrollment_params
-      params.expect(enrollment: [ :user_id, :course_id, :status ])
+      params.require(:enrollment).permit(:user_id, :course_id, :status)
     end
 end

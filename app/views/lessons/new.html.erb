@@ -1,0 +1,29 @@
+<h1>Новий урок</h1>
+<% if @lesson.errors.any? %>
+  <div class="errors">
+    <h2><%= pluralize(@lesson.errors.count, "помилка") %> заборонили збереження:</h2>
+    <ul>
+      <% @lesson.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: [@course, @lesson]) do |form| %>
+  <div>
+    <%= form.label :title, "Назва уроку" %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, "Зміст уроку" %><br>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit "Створити урок" %>
+  </div>
+<% end %>
+
+<%= link_to "Назад до курсу", course_path(@course) %>
