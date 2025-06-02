@@ -8071,3 +8071,340 @@ FOREIGN KEY ("blob_id")
   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250602222046') RETURNING "version" /*application='VxAcademy2'*/[0m
   [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='VxAcademy2'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Started GET "/courses" for ::1 at 2025-06-03 01:22:07 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='VxAcademy2'*/[0m
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendered courses/index.html.erb within layouts/application (Duration: 198.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 215.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 717ms (ActiveRecord: 3.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'user_signed_in?' for an instance of #<Class:0x000002ad7016a6f0>)
+Caused by: NoMethodError (undefined method 'user_signed_in?' for an instance of #<Class:0x000002ad7016a6f0>)
+
+Information for: ActionView::Template::Error (undefined method 'user_signed_in?' for an instance of #<Class:0x000002ad7016a6f0>):
+    33:         <%= link_to 'Про нас', about_path %>
+    34:       </nav>
+    35:       <% if logged_in? %>
+    36:         <%= link_to 'Профіль', user_path(current_user) if user_signed_in? %>
+    37:         Привіт, <%= current_user.name %>
+    38: 
+    39:         <%= link_to "Вийти", logout_path, method: :delete, data: { confirm: "Ви дійсно хочете вийти?" } %>
+  
+app/views/layouts/application.html.erb:36
+
+Information for cause: NoMethodError (undefined method 'user_signed_in?' for an instance of #<Class:0x000002ad7016a6f0>):
+  
+app/views/layouts/application.html.erb:36
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:22:08 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/courses" for ::1 at 2025-06-03 01:23:24 +0300
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/views/courses/index.html.erb:65
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='index',application='VxAcademy2',controller='courses'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendered courses/index.html.erb within layouts/application (Duration: 53.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 58.1ms | GC: 0.0ms)
+Completed 200 OK in 416ms (Views: 184.0ms | ActiveRecord: 8.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:23:24 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/user.4" for ::1 at 2025-06-03 01:23:29 +0300
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:6
+  Rendered users/show.html.erb within layouts/application (Duration: 49.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 50.8ms | GC: 0.0ms)
+Completed 200 OK in 314ms (Views: 52.6ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:23:29 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/user/edit.4" for ::1 at 2025-06-03 01:23:33 +0300
+Processing by UsersController#edit as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='edit',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 116.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 119.4ms | GC: 0.0ms)
+Completed 200 OK in 387ms (Views: 120.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:23:33 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started PATCH "/user.4" for ::1 at 2025-06-03 01:24:17 +0300
+Processing by UsersController#update as */*
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Teacher", "email" => "[FILTERED]", "avatar" => #<ActionDispatch::Http::UploadedFile:0x000002ad731023b8 @tempfile=#<Tempfile:C:/Users/admin/AppData/Local/Temp/RackMultipart20250603-2232-qq1b4t.jpg>, @content_type="image/jpeg", @original_filename="котик_аватар.jpg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"котик_аватар.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit" => "Зберегти зміни"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='update',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:11:in 'UsersController#update'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='update',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:11:in 'UsersController#update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='update',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:11:in 'UsersController#update'
+  [1m[36mActiveStorage::Blob Create (1.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ('um5l3lsvt8f0w7qq4nd3c47b9ygq', 'котик_аватар.jpg', 'image/jpeg', '{"identified":true}', 'local', 36351, 'rcm5DYCL8wCemZQC8ZdHBQ==', '2025-06-02 22:24:18.115712') RETURNING "id" /*action='update',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:11:in 'UsersController#update'
+  [1m[36mActiveStorage::Attachment Create (0.7ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ('avatar', 'User', 4, 1, '2025-06-02 22:24:18.130862') RETURNING "id" /*action='update',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:11:in 'UsersController#update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-06-02 22:24:18.141216' WHERE "users"."id" = 4 /*action='update',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:11:in 'UsersController#update'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:11:in 'UsersController#update'
+[36m  Disk Storage (37.5ms) [0m[32mUploaded file to key: um5l3lsvt8f0w7qq4nd3c47b9ygq (checksum: rcm5DYCL8wCemZQC8ZdHBQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 88e479e0-f9e5-4417-a491-cc89bc5a7fdf) to Async(default) with arguments: #<GlobalID:0x000002ad727d5c40 @uri=#<URI::GID gid://vx-academy2/ActiveStorage::Blob/1>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:11:in 'UsersController#update'
+Redirected to http://localhost:3000/user.4
+Completed 302 Found in 936ms (ActiveRecord: 11.9ms (6 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user.4" for ::1 at 2025-06-03 01:24:18 +0300
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*application='VxAcademy2'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf] Performing ActiveStorage::AnalyzeJob (Job ID: 88e479e0-f9e5-4417-a491-cc89bc5a7fdf) from Async(default) enqueued at 2025-06-02T22:24:18.585954400Z with arguments: #<GlobalID:0x000002ad7256c7b0 @uri=#<URI::GID gid://vx-academy2/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='VxAcademy2',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf]   [1m[36mActiveStorage::Blob Update (3.0ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"analyzed":true}' WHERE "active_storage_blobs"."id" = 1 /*application='VxAcademy2',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 1 /*application='VxAcademy2',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Processing by UsersController#show as */*
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 /*application='VxAcademy2',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf]   [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-06-02 22:24:18.772732' WHERE "users"."id" = 4 /*application='VxAcademy2',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='VxAcademy2',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [88e479e0-f9e5-4417-a491-cc89bc5a7fdf] Performed ActiveStorage::AnalyzeJob (Job ID: 88e479e0-f9e5-4417-a491-cc89bc5a7fdf) from Async(default) in 118.49ms
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 8.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | GC: 0.0ms)
+Completed 200 OK in 255ms (Views: 10.8ms | ActiveRecord: 0.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:24:19 +0300
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e65a90049f16d307fe0f5b0a70b13d545e3fd237/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:24:19 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e65a90049f16d307fe0f5b0a70b13d545e3fd237", "filename" => "котик_аватар"}
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='redirect'*/[0m
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: um5l3lsvt8f0w7qq4nd3c47b9ygq (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjI5OjE5LjU0M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--7f8e508b0eaac28d2103f2c416b6ec45643365a0/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjI5OjE5LjU0M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--7f8e508b0eaac28d2103f2c416b6ec45643365a0/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg
+Completed 302 Found in 281ms (ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjI5OjE5LjU0M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--7f8e508b0eaac28d2103f2c416b6ec45643365a0/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:24:19 +0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "котик_аватар"}
+Completed 200 OK in 225ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user.4" for ::1 at 2025-06-03 01:24:31 +0300
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | GC: 0.0ms)
+Completed 200 OK in 228ms (Views: 6.1ms | ActiveRecord: 0.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:24:32 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjI5OjE5LjU0M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--7f8e508b0eaac28d2103f2c416b6ec45643365a0/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:24:32 +0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "котик_аватар"}
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Completed 304 Not Modified in 269ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user.4" for ::1 at 2025-06-03 01:28:57 +0300
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:10
+  Rendered users/show.html.erb within layouts/application (Duration: 31.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | GC: 0.0ms)
+Completed 200 OK in 341ms (Views: 68.7ms | ActiveRecord: 3.0ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:28:57 +0300
+Started GET "/assets/application-6c8bd041.css" for ::1 at 2025-06-03 01:28:57 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjI5OjE5LjU0M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--7f8e508b0eaac28d2103f2c416b6ec45643365a0/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:28:57 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "котик_аватар"}
+Completed 304 Not Modified in 320ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user.4" for ::1 at 2025-06-03 01:29:13 +0300
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:10
+  Rendered users/show.html.erb within layouts/application (Duration: 15.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 62.7ms | GC: 0.0ms)
+Completed 200 OK in 890ms (Views: 63.8ms | ActiveRecord: 0.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:29:14 +0300
+Started GET "/assets/application-40dff2a3.css" for ::1 at 2025-06-03 01:29:14 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjI5OjE5LjU0M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--7f8e508b0eaac28d2103f2c416b6ec45643365a0/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:29:14 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "котик_аватар"}
+Completed 304 Not Modified in 921ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/user.4" for ::1 at 2025-06-03 01:29:38 +0300
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:10
+  Rendered users/show.html.erb within layouts/application (Duration: 21.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 62.3ms | GC: 0.0ms)
+Completed 200 OK in 861ms (Views: 64.8ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/assets/application-d1ec3239.css" for ::1 at 2025-06-03 01:29:39 +0300
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:29:39 +0300
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e65a90049f16d307fe0f5b0a70b13d545e3fd237/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:29:39 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e65a90049f16d307fe0f5b0a70b13d545e3fd237", "filename" => "котик_аватар"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='redirect'*/[0m
+[36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: um5l3lsvt8f0w7qq4nd3c47b9ygq (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjM0OjQwLjk4N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--18891dadd9d290029df1e0ca387b40816d6b8f6d/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjM0OjQwLjk4N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--18891dadd9d290029df1e0ca387b40816d6b8f6d/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg
+Completed 302 Found in 904ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjM0OjQwLjk4N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--18891dadd9d290029df1e0ca387b40816d6b8f6d/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:29:41 +0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "котик_аватар"}
+Completed 200 OK in 803ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user/edit.4" for ::1 at 2025-06-03 01:29:59 +0300
+Processing by UsersController#edit as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='edit',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 4.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | GC: 0.0ms)
+Completed 200 OK in 907ms (Views: 9.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:30:00 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/user/edit.4" for ::1 at 2025-06-03 01:30:48 +0300
+Processing by UsersController#edit as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='edit',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='edit',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/edit.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='edit',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/edit.html.erb:3
+  Rendered users/edit.html.erb within layouts/application (Duration: 37.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 76.4ms | GC: 0.0ms)
+Completed 200 OK in 345ms (Views: 82.1ms | ActiveRecord: 2.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:30:49 +0300
+Started GET "/assets/application-079ddbc1.css" for ::1 at 2025-06-03 01:30:49 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjM0OjQwLjk4N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--18891dadd9d290029df1e0ca387b40816d6b8f6d/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:30:49 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "котик_аватар"}
+Completed 304 Not Modified in 278ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:30:54 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started GET "/user.4" for ::1 at 2025-06-03 01:30:58 +0300
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:5:in 'ApplicationController#current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'User' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='VxAcademy2',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:10
+  Rendered users/show.html.erb within layouts/application (Duration: 10.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | GC: 0.0ms)
+Completed 200 OK in 806ms (Views: 13.7ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-06-03 01:30:59 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1bTVsM2xzdnQ4ZjB3N3FxNG5kM2M0N2I5eWdxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiJTNGJTNGJTNGJTNGJTNGXyUzRiUzRiUzRiUzRiUzRiUzRi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JyclRDAlQkElRDAlQkUlRDElODIlRDAlQjglRDAlQkFfJUQwJUIwJUQwJUIyJUQwJUIwJUQxJTgyJUQwJUIwJUQxJTgwLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTA2LTAyVDIyOjM0OjQwLjk4N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--18891dadd9d290029df1e0ca387b40816d6b8f6d/%D0%BA%D0%BE%D1%82%D0%B8%D0%BA_%D0%B0%D0%B2%D0%B0%D1%82%D0%B0%D1%80.jpg" for ::1 at 2025-06-03 01:30:59 +0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "котик_аватар"}
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Completed 304 Not Modified in 1007ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
